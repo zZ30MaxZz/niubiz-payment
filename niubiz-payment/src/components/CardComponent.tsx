@@ -9,18 +9,22 @@ export default class CardComponent extends React.Component<CardInterface, object
     render() {
         return(
             <div>
-                <h1>Datos de tarjeta</h1>
+                <h1>Datos de tarjeta de ejemplo</h1>
                 <div>
                     <label>Id:</label>
-                    <span>{this.props.idCard}</span>
-                </div>
-                <div>
-                    <label>CVV:</label>
-                    <span>{this.props.cvvCard}</span>
+                    <div>{this.props.idCard}</div>
                 </div>
                 <div>
                     <label>Number:</label>
-                    <span>{this.props.numberCard}</span>
+                    <div>{this.props.numberCard}</div>
+                </div>
+                <div>
+                    <label>Date:</label>
+                    <div>{this.props.date}</div>
+                </div>
+                <div>
+                    <label>CVV:</label>
+                    <div>{this.props.cvvCard}</div>
                 </div>
             </div>
         )

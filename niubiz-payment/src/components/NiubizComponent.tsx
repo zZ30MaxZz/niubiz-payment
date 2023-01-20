@@ -6,12 +6,14 @@ import { AppendScript } from '../utils/AppendScript '
 export const NiubizComponent = () => {
   // AppendScript("/checkout.js");
 
-  const urlLogo =  'https://github.com/zZ30MaxZz/niubiz-payment/blob/main/niubiz-payment/public/starbucks-logo.png?raw=true';
-  const merchantname =  'Starbucks';
+  const urlLogo = 'https://github.com/zZ30MaxZz/niubiz-payment/blob/main/niubiz-payment/public/starbucks-logo.png?raw=true';
+  const merchantname = 'Starbucks';
   const baseUrl = "https://apisandbox.vnforappstest.com/";
   const user = "integraciones@niubiz.com.pe";
   const password = "_7z3@8fF";
   const merchantId = '456879852';
+  const amount = '0.01';
+  const channel = 'web';
 
   let token = "";
   let passwordEncoded = "";
@@ -109,8 +111,8 @@ export const NiubizComponent = () => {
     const url = baseUrl + endpointSession + merchantId;
 
     const params = {
-      amount: "200",
-      channel: "web",
+      amount: amount,
+      channel: channel,
     };
 
     const options = {
@@ -138,10 +140,10 @@ export const NiubizComponent = () => {
     window?.VisanetCheckout.configure({
       action: 'paginaRespuesta',
       sessiontoken: sessionKey,
-      channel: 'paycard',
+      channel: channel,
       merchantid: merchantId,
       purchasenumber: '2020103102',
-      amount: '10.5',
+      amount: amount,
       cardholdername: 'Juan',
       cardholderlastname: 'Perez',
       cardholderemail: 'jperez@gmail.com',
@@ -174,7 +176,7 @@ export const NiubizComponent = () => {
 
   return (
     <div>
-      <CardComponent idCard={8918165} cvvCard={1512} numberCard="1123" />
+      <CardComponent idCard={8918165} cvvCard={111} numberCard="5160030000000317" date="03/2028" />
       <div>Renderizando solicitud Niubiz</div>
       <label>Token:</label>
       <div>{labelToken}</div>
