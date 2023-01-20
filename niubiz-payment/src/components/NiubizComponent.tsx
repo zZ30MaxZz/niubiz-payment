@@ -32,6 +32,8 @@ export const NiubizComponent = () => {
     Labels
     */
 
+  const [textButtton, setTextButtton] = useState("Agregar tarjeta");
+  const [classButtton, setClassButtton] = useState('');
   const [labelToken, setLabelToken] = useState("");
   const [labelSessionKey, setSessionKey] = useState("");
 
@@ -95,6 +97,9 @@ export const NiubizComponent = () => {
   };
 
   const addCard = () => {
+    setTextButtton("💱");
+    setClassButtton("spin-charge");
+
     const url = baseUrl + endpointSecurity;
     passwordEncoded = Buffer.from(user + ":" + password, "utf8").toString(
       "base64"
@@ -124,6 +129,9 @@ export const NiubizComponent = () => {
     setLabelToken(token);
 
     call(url, options, params, token, getResponseSessionKey);
+
+    setTextButtton("Agregar tarjeta");
+    setClassButtton("");
   };
 
   const getResponseSessionKey = (response: responseSession) => {
@@ -181,7 +189,7 @@ export const NiubizComponent = () => {
     <div className="card-container">
       <CardComponent idCard={8918165} cvvCard={111} numberCard="5160030000000317" date="03/2028" />
       <h3>Renderizando solicitud Niubiz</h3>
-      <input type="button" className="button-add" value={"Agregar tarjeta"} onClick={() => addCard()} />
+      <input type="button" className={"button-add " + classButtton} value={textButtton} onClick={() => addCard()} />
       <div className="left-text">
         <strong>Token:</strong>
         <div className="wrap-text">{labelToken}</div>
