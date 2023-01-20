@@ -11,9 +11,10 @@ export const NiubizComponent = () => {
   const baseUrl = "https://apisandbox.vnforappstest.com/";
   const user = "integraciones@niubiz.com.pe";
   const password = "_7z3@8fF";
-  const merchantId = '456879852';
+  const merchantId = '456879856';
   const amount = '0.01';
   const channel = 'web';
+  const purchasenumber: string = Math.floor(Math.random() * (9999999999 - 2020103102) + 2020103102).toString();
 
   let token = "";
   let passwordEncoded = "";
@@ -135,6 +136,7 @@ export const NiubizComponent = () => {
     console.log(token);
     console.log(sessionKey);
     console.log(merchantId);
+    console.log('Purchase number: ' + purchasenumber);
     console.log('Enviando datos');
 
     window?.VisanetCheckout.configure({
@@ -142,7 +144,7 @@ export const NiubizComponent = () => {
       sessiontoken: sessionKey,
       channel: channel,
       merchantid: merchantId,
-      purchasenumber: '2020103102',
+      purchasenumber: purchasenumber,
       amount: amount,
       cardholdername: 'Juan',
       cardholderlastname: 'Perez',
