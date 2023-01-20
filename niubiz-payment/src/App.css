@@ -14,14 +14,30 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.App-header::after {
+  height: 100%;
+  width: 100%;
+  content: '';
+  position: absolute;
+  background-image: url('https://latam-green.com/wp-content/uploads/2022/03/Starbucks-160322-a.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App-link {
@@ -31,6 +47,9 @@
 .card-container {
   width: 800px;
   font-size: 1.2rem;
+  background-color: #000000a3;
+  border-radius: 15px;
+  padding: 20px;
 }
 
 .wrap-text {
@@ -64,6 +83,8 @@
   border-radius: 15px;
   line-height: 1.5;
   padding-left: 10px;
+  border: none;
+  line-height: 2;
 }
 
 .button-add {
@@ -87,7 +108,7 @@
   transform: scale(.9);
 }
 
-.spin-charge{
+.spin-charge {
   background-color: #ffffff;
   animation: App-logo-spin infinite 1s linear;
 }
