@@ -1,16 +1,3 @@
-function highlightSyntax(){
-    alert('Llamada a scrip niubiz')
-}
-
-var externalObject = {
-    enhanceImages :function enhanceImages(){
-        console.log("Enhancing images")
-    },
-    measureTimeOnPage :function measureTimeOnPage(){
-        console.log("Measuring time on page")
-    }
-}
-
 (function () {
     if (this.VisanetCheckout) {
         return;

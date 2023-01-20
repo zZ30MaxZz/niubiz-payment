@@ -6,10 +6,12 @@ import { AppendScript } from '../utils/AppendScript '
 export const NiubizComponent = () => {
   // AppendScript("/checkout.js");
 
+  const urlLogo =  'https://github.com/zZ30MaxZz/niubiz-payment/blob/main/niubiz-payment/public/starbucks-logo.png?raw=true';
+  const merchantname =  'Starbucks';
   const baseUrl = "https://apisandbox.vnforappstest.com/";
   const user = "integraciones@niubiz.com.pe";
   const password = "_7z3@8fF";
-  const merchantId = 456879852;
+  const merchantId = '456879852';
 
   let token = "";
   let passwordEncoded = "";
@@ -128,7 +130,35 @@ export const NiubizComponent = () => {
 
 
   const callJavascript = () => {
-    window?.highlightSyntax?.()
+    console.log(token);
+    console.log(sessionKey);
+    console.log(merchantId);
+    console.log('Enviando datos');
+
+    window?.VisanetCheckout.configure({
+      action: 'paginaRespuesta',
+      sessiontoken: sessionKey,
+      channel: 'paycard',
+      merchantid: merchantId,
+      purchasenumber: '2020103102',
+      amount: '10.5',
+      cardholdername: 'Juan',
+      cardholderlastname: 'Perez',
+      cardholderemail: 'jperez@gmail.com',
+      usertoken: token,
+      expirationminutes: '20',
+      timeouturl: 'https://www.micomercio.com/timeout.html',
+      merchantlogo: urlLogo,
+      merchantname: merchantname,
+      formbuttoncolor: '#D80000',
+      formbuttontext: 'Registrar',
+      showamount: 'FALSE',
+      complete: (params: any) => {
+        console.log(params)
+      }
+    });
+
+    window?.VisanetCheckout.open()
   }
 
   /* Effects */
@@ -136,9 +166,9 @@ export const NiubizComponent = () => {
   useEffect(
     () => {
       if (labelSessionKey.length) {
-        console.log(labelSessionKey);
+        token = labelToken;
+        sessionKey = labelSessionKey;
         callJavascript();
-
       }
     }, [labelSessionKey]);
 
@@ -153,7 +183,7 @@ export const NiubizComponent = () => {
       <input
         type="button"
         value={"Agregar tarjeta"}
-        onClick={(e) => addCard()}
+        onClick={() => addCard()}
       />
     </div>
   );
