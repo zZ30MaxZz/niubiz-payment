@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CardComponent from "./CardComponent";
 import { Buffer } from "buffer";
+import { AppendScript } from '../utils/AppendScript '
 
 export const NiubizComponent = () => {
+  // AppendScript("/checkout.js");
+
   const baseUrl = "https://apisandbox.vnforappstest.com/";
   const user = "integraciones@niubiz.com.pe";
   const password = "_7z3@8fF";
@@ -123,12 +126,24 @@ export const NiubizComponent = () => {
     setSessionKey(sessionKey);
   };
 
+
+  const callJavascript = () => {
+    window?.highlightSyntax?.()
+  }
+
+  /* Effects */
+
+  useEffect(
+    () => {
+      if (labelSessionKey.length) {
+        console.log(labelSessionKey);
+        callJavascript();
+
+      }
+    }, [labelSessionKey]);
+
   return (
     <div>
-      <link
-        rel="stylesheet"
-        href="https://static-content-qas.vnforapps.com/vTokenSandbox/js/checkout.js"
-      />
       <CardComponent idCard={8918165} cvvCard={1512} numberCard="1123" />
       <div>Renderizando solicitud Niubiz</div>
       <label>Token:</label>
