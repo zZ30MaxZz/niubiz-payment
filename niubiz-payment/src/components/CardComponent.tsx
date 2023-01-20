@@ -7,24 +7,24 @@ export default class CardComponent extends React.Component<CardInterface, object
     }
 
     render() {
-        return(
+        return (
             <div>
                 <h1>Datos de tarjeta de ejemplo</h1>
-                <div>
-                    <label>Id:</label>
-                    <div>{this.props.idCard}</div>
-                </div>
-                <div>
-                    <label>Number:</label>
-                    <div>{this.props.numberCard}</div>
-                </div>
-                <div>
-                    <label>Date:</label>
-                    <div>{this.props.date}</div>
-                </div>
-                <div>
-                    <label>CVV:</label>
-                    <div>{this.props.cvvCard}</div>
+                <div className="left-text">
+                    <div>
+                        <span>Id: </span>
+                        {this.props.idCard}
+                    </div>
+                    <div>
+                        <span>Number: </span>
+                        {this.props.numberCard}
+                    </div>
+                    <div>
+                        <span>Date: </span>{this.props.date}
+                    </div>
+                    <div>
+                        <span>CVV: </span>{this.props.cvvCard}
+                    </div>
                 </div>
             </div>
         )

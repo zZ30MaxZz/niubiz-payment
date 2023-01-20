@@ -15,6 +15,7 @@ export const NiubizComponent = () => {
   const amount = '0.01';
   const channel = 'web';
   const purchasenumber: string = Math.floor(Math.random() * (9999999999 - 2020103102) + 2020103102).toString();
+  const colorButton = '#006341';
 
   let token = "";
   let passwordEncoded = "";
@@ -154,7 +155,7 @@ export const NiubizComponent = () => {
       timeouturl: 'https://www.micomercio.com/timeout.html',
       merchantlogo: urlLogo,
       merchantname: merchantname,
-      formbuttoncolor: '#D80000',
+      formbuttoncolor: colorButton,
       formbuttontext: 'Registrar',
       showamount: 'FALSE',
       complete: (params: any) => {
@@ -177,18 +178,16 @@ export const NiubizComponent = () => {
     }, [labelSessionKey]);
 
   return (
-    <div>
+    <div className="card-container">
       <CardComponent idCard={8918165} cvvCard={111} numberCard="5160030000000317" date="03/2028" />
       <div>Renderizando solicitud Niubiz</div>
-      <label>Token:</label>
-      <div>{labelToken}</div>
-      <label>SessionKey:</label>
-      <div>{labelSessionKey}</div>
-      <input
-        type="button"
-        value={"Agregar tarjeta"}
-        onClick={() => addCard()}
-      />
+      <input type="button" value={"Agregar tarjeta"} onClick={() => addCard()} />
+      <div className="left-text">
+        <strong>Token:</strong>
+        <div className="wrap-text">{labelToken}</div>
+        <strong>SessionKey:</strong>
+        <div className="wrap-text">{labelSessionKey}</div>
+      </div>
     </div>
   );
 };
