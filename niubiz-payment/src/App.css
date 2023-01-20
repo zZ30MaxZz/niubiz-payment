@@ -41,11 +41,56 @@
   text-align: left;
 }
 
+.form-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-control label {
+  min-width: 20%;
+}
+
+.form-control input {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.button-add {
+  border: none;
+  background-color: #006341;
+  color: #fff;
+  font-size: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 35px;
+  border-radius: 20px;
+}
+
+.button-add:hover {
+  background-color: #02744c;
+}
+
+.button-add:active {
+  background-color: #028557;
+  transform: scale(.9);
+}
+
 @media only screen and (max-width: 980px) {
   .card-container {
     width: auto;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .form-control {
+    flex-direction: column;
+  }
+
+  .form-control label,
+  .form-control input {
+    width: auto;
   }
 }
 

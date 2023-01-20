@@ -180,8 +180,8 @@ export const NiubizComponent = () => {
   return (
     <div className="card-container">
       <CardComponent idCard={8918165} cvvCard={111} numberCard="5160030000000317" date="03/2028" />
-      <div>Renderizando solicitud Niubiz</div>
-      <input type="button" value={"Agregar tarjeta"} onClick={() => addCard()} />
+      <h3>Renderizando solicitud Niubiz</h3>
+      <input type="button" className="button-add" value={"Agregar tarjeta"} onClick={() => addCard()} />
       <div className="left-text">
         <strong>Token:</strong>
         <div className="wrap-text">{labelToken}</div>

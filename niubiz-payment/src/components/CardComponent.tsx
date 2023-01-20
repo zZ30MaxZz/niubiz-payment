@@ -11,19 +11,21 @@ export default class CardComponent extends React.Component<CardInterface, object
             <div>
                 <h1>Datos de tarjeta de ejemplo</h1>
                 <div className="left-text">
-                    <div>
-                        <span>Id: </span>
-                        {this.props.idCard}
+                    <div className="form-control">
+                        <label>Id: </label>
+                        <input type="text" value={this.props.idCard} />
                     </div>
-                    <div>
-                        <span>Number: </span>
-                        {this.props.numberCard}
+                    <div className="form-control">
+                        <label>Number: </label>
+                        <input type="text" value={this.props.numberCard} />
                     </div>
-                    <div>
-                        <span>Date: </span>{this.props.date}
+                    <div className="form-control">
+                        <label>Date: </label>
+                        <input type="text" value={this.props.date} />
                     </div>
-                    <div>
-                        <span>CVV: </span>{this.props.cvvCard}
+                    <div className="form-control">
+                        <label>CVV: </label>
+                        <input type="text" value={this.props.cvvCard} />
                     </div>
                 </div>
             </div>
